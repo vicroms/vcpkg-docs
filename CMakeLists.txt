@@ -1,11 +1,16 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.14)
 
 project(my_sample_lib)
 
 include(GNUInstallDirs)
+include(FetchContent)
 
 # Find the fmt library
-find_package(fmt CONFIG REQUIRED)
+FetchContent_Declare(fmt
+  GIT_REPOSITORY https://github.com/fmtlib/fmt.git
+  GIT_TAG master
+)
+FetchContent_MakeAvailable(fmt)
 
 # Add your library
 add_library(my_sample_lib my_sample_lib.cpp)
