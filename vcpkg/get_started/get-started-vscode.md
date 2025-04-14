@@ -137,7 +137,7 @@ dependencies, configure, build, and run a simple application.
   ```
 
   This is your manifest file. vcpkg reads the manifest file to learn what
-  dependencies to install and integrates with MSBuild to provide the
+  dependencies to install and integrates with CMake to provide the
   dependencies required by your project.
 
   The generated `vcpkg-configuration.json` file introduces a
