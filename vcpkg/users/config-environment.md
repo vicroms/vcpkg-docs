@@ -18,7 +18,7 @@ subject to change without notice and should be considered highly unstable.
 
 There are no off-by-default feature flags at this time.
 
-## EDITOR
+## <a name="editor"></a> :::no-loc text="EDITOR":::
 
 This environment variable can be set to the full path of an executable to be used for `vcpkg edit`. Please see
 `vcpkg help edit` for command-specific help.
