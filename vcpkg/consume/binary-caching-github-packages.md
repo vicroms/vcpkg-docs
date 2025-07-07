@@ -4,7 +4,7 @@ description: This tutorial shows how to set up a vcpkg binary cache using a NuGe
 author: vicroms
 ms.author: viromer
 ms.topic: tutorial
-ms.date: 01/10/2024
+ms.date: 5/1/2025
 #CustomerIntent: As a vcpkg user, I want to setup binary caching in my GitHub Actions workflow using GitHub Packages as the binary cache storage
 zone_pivot_group_filename: zone-pivot-groups.json
 zone_pivot_groups: os-runner
@@ -122,8 +122,15 @@ Add the following step in your GitHub Actions workflow file:
 
 ::: zone pivot="linux-runner"
 
-On Linux, you need `mono` to execute `nuget.exe`. GitHub Actions runners using Ubuntu come with `mono`
-preinstalled. Otherwise, you can install `mono` using your distribution's system package manager.
+On Linux, you need `mono` to execute `nuget.exe`. You can install `mono` using your distribution's
+system package manager:
+
+```bash
+apt install mono-complete
+```
+
+Note that `ubuntu-22.04` GitHub Actions runners come with `mono` preinstalled, but starting with
+`ubuntu-24.04` (which `ubuntu-latest` currently points to), `mono` no longer comes preinstalled.
 
 ```YAML
 - name: Add NuGet sources
@@ -163,4 +170,3 @@ Here are other tasks to try next:
 * [Change the default binary cache location](binary-caching-default.md)
 * [Set up a local binary cache](binary-caching-local.md)
 * [Set up a binary cache using a NuGet feed](binary-caching-nuget.md)
-* [Set up a binary cache in your GitHub Actions workflow using GitHub Actions Cache](binary-caching-github-actions-cache.md)
