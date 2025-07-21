@@ -122,12 +122,12 @@ For a full list of supported LCIDs see [Localization](https://github.com/microso
 
 This environment variable allows using a private mirror for all SHA512-tagged assets. See [Asset Caching](assetcaching.md) for more details.
 
-## X_VCPKG_NUGET_PREFIX
+## X_VCPKG_NUGET_ID_PREFIX
 
 Adds a prefix to the name of all the binary packages pushed or restored from
 [NuGet binary caches](../reference/binarycaching.md#nuget).
 
-For example, when `X_VCPKG_NUGET_PREFIX` is set to `vcpkg_demo-` the
+For example, when `X_VCPKG_NUGET_ID_PREFIX` is set to `vcpkg_demo-` the
 `zlib_x64-windows.1.2.13-vcpkg8918746ce8b60474e5ebe68e53355fa70eb05119be913a1d1dc0b930b3b7b6e8.nupkg`
 binary package becomes
 `vcpkg_demo-zlib_x64-windows.1.2.13-vcpkg8918746ce8b60474e5ebe68e53355fa70eb05119be913a1d1dc0b930b3b7b6e8.nupkg`.
