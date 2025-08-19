@@ -153,6 +153,8 @@
     items:
     - name: CMake style guide
       href: contributing/cmake-guidelines.md
+    - name: Documentation style guide
+      href: contributing/documentation-style-guide.md
     - name: Maintainer guide
       href: contributing/maintainer-guide.md
     - name: PR review checklist
