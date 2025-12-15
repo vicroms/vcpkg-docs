@@ -270,6 +270,13 @@ Examples:
 
 ### <a name="default-features-should-enable-behaviors-not-apis"></a> Default features must not add APIs
 
+> [!NOTE]
+> A feature enabled by default by the upstream build system, does not imply that
+> the feature should be added to the [`default-features`](../reference/vcpkg-json.md#dependency-default-features) 
+> entries. As the intended  purpose of `default-features` is not to model the 
+> decisions made by upstream but to provide convenience for [classic mode](../concepts/classic-mode.md) 
+> users.
+
 Default features are intended to ensure that a reasonably functional build of a library gets installed for customers who don't know they are using it. If they don't know they are using a library, they can't know to list features. For example, `libarchive` exposes features that enable compression algorithms to an existing generic interface; if built without any of such features, the library may have no utility.
 
 One must carefully consider whether a feature should be on by default, because disabling default features is complex.
@@ -279,6 +286,7 @@ Disabling a default feature as a 'transitive' consumer requires:
 * Naming the transitive dependency on the `vcpkg install` command line, or as a direct dependency in the top level manifest
 
 In vcpkg's curated registry, if the feature adds additional APIs, executables, or other binaries, it must be off by default. If in doubt, do not mark a feature as default.
+ 
 
 ### Do not use features to control alternatives in published interfaces
 
