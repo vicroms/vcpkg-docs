@@ -26,7 +26,8 @@ Manifest mode is also required to use advanced features like
 In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
-> * [Create a project with a manifest]
+> * [Create a C++ project]
+> * [Create a vcpkg manifest](#create-manifest)
 > * [Integrate vcpkg with your build system]
 > * [Install dependencies]
 > * [Build the project]
@@ -39,25 +40,32 @@ In this tutorial, you will learn how to:
 * A C++ compiler
 * (Optional) CMake or MSBuild
 
-## 1 - Create a project with a manifest
+## 1 - Create a C++ project
 
 In a new folder, create a source file named `main.cxx` with these contents:
 
+`main.cxx`
+
 :::code language="cpp" source="../examples/snippets/manifest-mode-cmake/main.cxx":::
 
-The code references the open-source libraries: `cxxopts`, `fmt`, and `range-v3`; which are all
-available in the vcpkg public registry at <https://github.com/Microsoft/vcpkg>.
+The example code references the open-source libraries: `cxxopts`, `fmt`, and 
+`range-v3`; which are all available in the vcpkg public registry at 
+<https://github.com/Microsoft/vcpkg>.
 
-To declare these dependencies, create a file named `vcpkg.json` in the same directory as your project:
+## <a name="create-manifest"></a>2 - Create the project's manifest (`vcpkg.json`)
 
-`vcpkg.json`:
+To declare these dependencies, create a file named `vcpkg.json` in the same 
+directory as your project.
+
+`vcpkg.json`
 
 :::code language="json" source="../examples/snippets/manifest-mode-cmake/vcpkg.json":::
 
-You only need to specify your direct dependencies in the `"dependencies"` list. When it runs, vcpkg
-resolves and installs any required transitive dependencies.
+You only need to specify the project's direct dependencies in the 
+`"dependencies"` list, vcpkg resolves and installs any required transitive 
+dependencies.
 
-## 2 - Integrate vcpkg with your build system
+## 3 - Integrate vcpkg with your build system
 
 In this step we show you how to integrate vcpkg with CMake or MSBuild, so that your project dependencies get automatically installed or restored whenever you build the project.
 
@@ -104,7 +112,7 @@ CMake configure call.
 
 ---
 
-## 3 - Install dependencies
+## 4 - Install dependencies
 
 If you're using CMake or MSBuild and followed the previous step, you can skip ahead to the next step:
 [Build the project].
@@ -152,7 +160,7 @@ range-v3 provides CMake targets:
 
 When the command finishes, all built packages will be present in a `vcpkg_installed` directory. The specific location of this directory depends on your build system; usually, inside the build system's default output folder, or next to your `vcpkg.json` file. 
 
-## 4 - Build the project
+## 5 - Build the project
 
 ### [MSBuild](#tab/build-MSBuild)
 
