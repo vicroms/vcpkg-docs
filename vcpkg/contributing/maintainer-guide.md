@@ -99,6 +99,10 @@ stem (`ip`) and thus are considered to have the same name.
 An exception to this guideline is made for names that are strongly associated
 with a single project. For example: `libpng`, `openssl` and `zlib`.
 
+To avoid confusion for users, we may limit the frequency at which a port can be
+renamed once it has been added to the public registry. Our current policy is to
+not allow more than one rename per year.
+
 ### Use GitHub draft PRs
 
 GitHub Draft PRs are a great way to get CI or human feedback on work that isn't yet ready to merge.
